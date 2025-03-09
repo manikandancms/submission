@@ -1,0 +1,5 @@
+.bg-image{
+    background-image: url("https://ik.imagekit.io/4z8covdo9/MERN-COURSE-ASSETS/FOOD-STORE/foodmunch-baner-bg.png");
+    height: 100%;
+    background-size: cover;
+}
