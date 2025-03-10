@@ -1,0 +1,222 @@
+HTML
+1. WHAT IS HTML
+Ans: HTML Stand for = (Hyper Text Markup Language)
+2. WHY HTML IS USED
+Ans: HTML is used to structure and define the content of web pages.
+3. What is Emmet & List 5 Emmet
+Ans: Emmet is a popular plugin for text editors that allows you to write HTML and CSS code faster and more efficiently.
+(i) a
+<a href=""></a>
+ (ii) !
+Alias of html:5
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+(iii) br
+<br />
+(iv) ul>li*2
+<ul>
+    <li></li>
+(v) a:link
+<a href="http://"></a>
+
+4. SHORT CUT CREATE of Emmet Boiler plate of HTML
+Ans: To create a basic HTML boilerplate using Emmet, you can use the following shortcut:
+*html:5*
+
+<!DOCTYPE html>
+<html >
+<head>
+  <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+
+ 5. WHAT STRUCTURE OF HTML
+Ans: Here is the basic structure of an HTML document:
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Document</title>
+</head>
+<body>  
+</body>
+</html>
+
+6.  WHAT IS **HEAD** TAG
+Ans: The <head> # </head> tag plays a crucial role in:
+	Links: Link to external stylesheets, scripts, or other resources.
+	Scripts: Include JavaScript code or link to external scripts.
+	Styles: Define internal styles or link to external stylesheets.
+	Tailwind: To Add the tailwind script
+
+ 7. WHAT IS BODY TAG
+Ans: The <body> tag serves as a container for all the visible content of a web page, including:
+•	Text: Paragraphs, headings, lists
+•	Images: Graphics, logos, icons 
+•	Multimedia: Audio, video
+•	Interactive elements: Forms, buttons, links
+•	Semantic elements: Structural elements like header, footer, nav 
+
+8.  IMPORTANT 3 ELEMENTS OR TAG
+Ans: *Headings (<h1>, <h2>, <h3>, etc.)*= Headings create a clear visual hierarchy
+*Links (<a>) and Anchors* = Links enable users to navigate between pages and sections, making it essential for website usability.
+
+*Semantic Containers*(<header>, <nav>, <main>, <section>, <footer>)*= Semantic containers provide a clear structure for screen readers, making it easier for users with disabilities to navigate the page.
+
+
+9.  WHAT IS DIFFERENT B/W ELEMENTS & TAGS IN HTML
+Ans: Tag are using opening element and closing element = example:  <p> </p>
+Element has content between opening tag and closing tag like full form = example: <p> I’m very happy to see you </p>
+
+
+
+CSS
+
+1.	WHAT IS CSS
+Ans: CSS stands for Cascading Style Sheets.
+2.	WHY IS CSS
+ Ans: It is essential for web development because it controls the presentation of web pages.
+
+3.	HOW TO CONNECT HTML & CSS , Tell the emmet Shortcut
+
+Ans:
+ <head>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+Emmet: “link:css”
+4.	HOW TO GET FONT & COLOR , IMAGE, CDN
+Ans:
+ Font  
+Go to google font
+•  Choose your desired fonts. 
+•  Copy the provided <link> tag and paste it into the <head> section of your HTML document. 
+•  Use the corresponding CSS font family property to apply the font to your elements.
+
+CSS Color Values: 
+•	CSS supports various color formats, including: 
+o	Hexadecimal (e.g. #FF000 for red).
+o	RGB (e.g. rcg (255, 0, 0)
+o	
+•	Image Formats: 
+o	Use appropriate image formats: 
+	JPEG: For photos.   
+	PNG: For images with transparency.   
+	WebP: A modern format that provides excellent compression.
+CDNs (Content Delivery Networks):
+•	Purpose: 
+o	CDNs distribute your website's static files (images, CSS, JavaScript) across a network of servers worldwide. This improves loading speed by serving files from the server closest to the user
+o	Ex: bootstrap, imagekit
+5.	BASIC CSS FAMILY : Text Family, Color & Background Family, Box Model
+Ans: 
+Text Family:
+This family deals with the styling of text. Key properties include:
+Font family
+o	Specifies the typeface to be used.
+o	Examples: font -family: Arial, sans sarif.
+o	Sets the size of the text.
+o	Examples: font-size: 16px;, font-size: 1.2em;
+	font-weight:
+o	Controls the boldness of the text.
+o	Examples: font-weight: bold;, font-weight: 400;
+font-style:
+o	Sets the style of the text (e.g., italic).
+o	Example: italic
+font-style:
+o	Sets the color of the text.
+Example:blue
+Color & Background Family:
+This family focuses on the colors and backgrounds of elements. Key properties include:
+Color:
+o	Sets the foreground color of an element (typically text).
+Backgroundcolor:
+o	Sets the background color of an element.
+o	Example: ackground-color: lightgray;
+Box Model:
+The CSS box model is fundamental to understanding how elements are laid out on a webpage. It consists of:
+•	Content: 
+o	The actual content of the element (text, images, etc.).
+•	Padding: 
+o	The space between the content and the border.
+	Ex:padding 10 px
+
+Border: 
+A line that surrounds the padding and content.
+                  Ex: boder boder solid
+
+•	Margin: 
+o	The space outside the border, separating the element from other elements.
+	Ex: margin 5px
+
+6.	WHEN TO USE BACKGROUND IMG VS IMG TAG
+Ans: 
+*Background Images (background-image)*
+1. Use for decorative purposes: Background images are suitable for decorative elements, such as textures, patterns, or gradients, that don't add essential meaning to the content.
+2. Use for responsive designs: Background images can be easily resized and adapted to different screen sizes and devices using CSS.
+3. Use for visual effects: Background images can be used to create visual effects, such as parallax scrolling or hover effects.
+
+*Img Tag (<img>)*
+1. Use for content images: The img tag is suitable for images that add essential meaning to the content, such as product images, infographics, or photos.
+2. Use for semantic meaning: The img tag provides semantic meaning to the image, making it accessible to screen readers and search engines.
+3. Use for image captions: The img tag allows you to add captions to images using the figcaption element.
+7.   WHAT IS LAYOUT & Explain About flexbox Properties
+Ans:
+	display: flex or inline-flex - Defines the container as a flexible box.
+	flex-direction: row, row-reverse, column, or column-reverse - Specifies the direction of the flexible items.
+	flex-wrap: wrap, nowrap, or wrap-reverse - Controls whether the flexible items wrap to a new line or not.
+	justify-content: flex-start, flex-end, center, space-between, or space-around - Aligns the flexible items along the main axis.
+	align-items: flex-start, flex-end, center, baseline, or stretch - Aligns the flexible items along the cross axis.
+	align-content: flex-start, flex-end, center, space-between, space-around, or stretch - Aligns the flexible lines along the cross axis.
+	flex-grow: <number> - Specifies the growth factor of a flexible item.
+	flex-shrink: <number> - Specifies the shrink factor of a flexible item.
+	flex-basis: <length> or <percentage> - Specifies the initial length of a flexible item.
+
+•	Flexbox Container Properties:
+1.	flex: shorthand for flex-grow, flex-shrink, and flex-basis.
+2.	flex-flow: shorthand for flex-direction and flex-wrap.
+
+•	Flexbox Item Properties:
+1.	align-self: auto, flex-start, flex-end, center, baseline, or stretch - Aligns the item along the cross axis.
+2.	flex: shorthand for flex-grow, flex-shrink, and flex-basis.
+3.	order: <integer> - Specifies the order of the item.
+
+
+8.WHAT IS TAILWIND CSS & WHY IS IT USED
+
+•	What is Tailwind CSS?
+•	Tailwind CSS is a utility-first CSS framework that allows you to write more concise and maintainable CSS code. It provides a set of pre-defined classes that can be used to style HTML elements.
+
+•	Key Features:
+1.	Utility-first approach: Tailwind CSS focuses on providing low-level utility classes that can be combined to create custom styles.
+2.	Configurable: Tailwind CSS allows you to customize the framework by configuring the settings in the tailwind.config.js file.
+3.	Responsive design: Tailwind CSS provides a set of responsive design classes that make it easy to create mobile-friendly and responsive designs.
+4.	Pre-defined classes: Tailwind CSS provides a set of pre-defined classes for common styling tasks, such as spacing, sizing, and typography.
+
+•	Why is Tailwind CSS used?
+1.	Faster development: Tailwind CSS speeds up development by providing pre-defined classes that can be used to style HTML elements quickly.
+2.	More maintainable code: Tailwind CSS encourages a utility-first approach, which results in more maintainable and modular code.
+3.	Customizable: Tailwind CSS allows developers to customize the framework to fit their specific needs.
+4.	Responsive design: Tailwind CSS makes it easy to create responsive designs that work well on different devices and screen sizes.
+5.	Large community: Tailwind CSS has a large and active community, which means there are many resources available for learning and troubleshooting.
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
