@@ -47,8 +47,17 @@
  <!-- Section:1 Header -->
 
  <section class="py-10 bg-image">
-<div class="2xl:container mx-auto">
-    <div class="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2">
+<div class="2xl:container mx-auto h-full">
+    <div class="w-[90%] mx-auto grid grid-cols-1 h-full">
+        <div class=" flex flex-col justify-center items-center gap-4">
+            <p class="font-[Poppins] font-normal text-[45px] leading-[54px] text-[rgb(255,255,255)] ">Get Delicious Food Anytime</p>
+            <p  class="font-[Poppins] font-normal text-[24px] leading-[36px] text-[rgb(255,255,255)]">Eat Smart & Healthy</p>
+          <div >
+            <button class="px-6 py-3 rounded-lg text-white text-[16px] leading-[24px] bg-[rgb(193,165,0)] border-2 border-[rgb(193,165,0)] active:border-white">View Menu</button>
+            <button class="px-6 py-3 rounded-lg text-[rgb(193,165,0)] text-[16px] leading-[24px] border border-[rgb(193,165,0)] active:border-white">Order Now</button>
+          
+          </div>
+        </div>
 
     </div>
 </div>
@@ -116,8 +125,11 @@
 
     <!-- Section:3 Explore Menu -->
     <section class=" py-10">
-        <div class="2xl:container mx-auto">
+        <div class="2xl:container mx-auto">  <p class="w-[90%] mx-auto grid grid-cols-1 font-[poppins] font-bold text-[28px] leading-[34px] text-[rgb(24,59,86)] py-2">Explore Menu </p> 
             <div class="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
+              
+                   
+
                 <!-- CARD-->
                 <div class="bg-white shadow-xl p-4 rounded-2xl ">
 
@@ -349,7 +361,7 @@
                         the true and unadulterated gifts from mother nature.
                     </p>
 
-                    <button class="px-6 py-3 rounded-lg text-white  bg-[rgb(193,165,0)]">Watch Video</button>
+                    <button class="px-6 py-3 rounded-lg text-white  bg-[rgb(193,165,0)]  border-2 border-[rgb(193,165,0)] active:border-black">Watch Video</button>
                 </div>
 
             </div>
@@ -369,7 +381,7 @@
                         payment with the plenitude of payment options available for you. Get live tracking and locate
                         your food on a live map. It's quite a sight to see your food arrive to your door. Plus, you get
                         a 5% discount on every order every time you pay online.</p>
-                    <button class="px-6 py-3 rounded-lg text-white text-[16px] leading-[24px] bg-[rgb(193,165,0)]">Order
+                    <button class="px-6 py-3 rounded-lg text-white text-[16px] leading-[24px] bg-[rgb(193,165,0)]  border-2 border-[rgb(193,165,0)] active:border-black">Order
                         Now</button>
 
 
@@ -427,7 +439,7 @@
 
 
                     <button
-                        class="px-6 py-3 rounded-lg text-white text-[16px] leading-[24px] bg-[rgb(193,165,0)]">Reedem
+                        class="px-6 py-3 rounded-lg text-white text-[16px] leading-[24px] bg-[rgb(193,165,0)]  border-2 border-[rgb(193,165,0)] active:border-black">Reedem
                         gift</button>
                 </div>
 
@@ -469,7 +481,7 @@
 
 
                     <div
-                        class="bg-yellow-400  hover:bg-[rgb(253,9,184)] w-10 h-10 rounded-full flex justify-center items-center">
+                        class="bg-yellow-400  hover:bg-[rgb(232,47,100)] w-10 h-10 rounded-full flex justify-center items-center">
 
 
 
@@ -519,6 +531,19 @@
         </div>
     </section>
 
+
+   
+
+    <script>
+        function highlightBorder(button) {
+            button.classList.add('border-white'); // Add white border
+            setTimeout(() => {
+                button.classList.remove('border-white'); // Remove after a short delay
+            }, 200); // 2000 milliseconds (adjust as needed)
+        }
+
+
+    </script>
 
 </body>
 
