@@ -48,19 +48,11 @@ out put = user Age: 25, user Name: mani.
 3. Comments in JavaScript:
 
 Ans:
-here multi-line comment explaining the purpose of a function:
 
-* Calculates the area of a rectangle.
- 
-* This function takes two parameters: length and width.
-* It returns the product of these two values, representing the area of the rectangle.
- 
-* Parameters:
-    length (number): The length of the rectangle.
-    width (number): The width of the rectangle.
+*we can divide this comments in two type:
 
-* Returns:
-    number: The area of the rectangle.
+single line comment == // Ex: //selector name is btn1
+multi line comment == /* XXX */  Ex: most used to this comment more than one line .
 
 4. Create two variables and assign them numerical values
 
@@ -189,40 +181,32 @@ for (let i = 1; i <= 5; i++) {
  9. Loose vs Strict Equality:
 
 Explain the difference between loose equality (==) and strict equality (===) with examples.
+let nos = 8;
+let result = 10;
 
-Loose Equality (==) Examples:
+console.log(nos==result);
 
-console.log("0" == false);  // Output: true
-console.log(null == 0);  // Output: false
-console.log(undefined == 0);  // Output: false
-console.log(" \t\r\n" == 0);  // Output: true
+//we understand loose (==) it function is equal but work not like accurately it wont consider the which typeof data.
 
+ nos = 8;
+ result = "8";
 
-Strict Equality (===) Examples:
-
-console.log("0" === false);  // Output: false
-console.log(null === 0);  // Output: false
-console.log(undefined === 0);  // Output: false
-console.log(" \t\r\n" === 0);  // Output: false
+console.log(nos==result);
 
 
-What happens during Loose Equality (==) checks?
-  Type Conversion: JavaScript attempts to convert one or both operands to a common type.
-  Value Comparison: After type conversion, JavaScript compares the values.
+nos = 8;
+ result = "8";
 
-Pitfalls of Loose Equality (==)
-  Unexpected Type Conversions: Can lead to incorrect results.
-  Null and Undefined: Can be equal to other values, causing unexpected behavior.
+console.log(nos===result);
+//we understand strict (===) it function also is equal but work like accurately with match value . it does consider the which typeof data.
 
-Benefits of Strict Equality (===)
-  Predictable Behavior: Ensures accurate comparisons without unexpected type conversions.
-  Code Reliability: Helps prevent bugs and errors caused by loose equality checks.
+nos = 8;
+ result = 8;
 
-In summary:
+console.log(nos===result);
 
-- Loose equality (==) performs implicit type conversions, which can lead to unexpected results.
-- Strict equality (===) checks both value and data type, ensuring more accurate comparisons.
-- Use strict equality (===) for most comparisons to avoid unexpected type conversions.
+// we can understand it if excute this data into js.
+
 
 
 
