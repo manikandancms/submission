@@ -6,4 +6,3 @@ if(temperature >30)
 else if (temperature<=30)
 {console.log("sun is pleasant")}
 
-
