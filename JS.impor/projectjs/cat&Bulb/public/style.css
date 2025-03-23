@@ -10,9 +10,11 @@
 
 #color{
     background-color: black;
+
+    height: 100vh;
 }
 
-.box-1{
+#box-1{
     
     text-align: center;
    
