@@ -1,0 +1,24 @@
+.Imagecdn1{
+    height: 200px;
+  
+}
+
+.Imagecdn2{
+    height: 200px;
+  
+}
+
+.color{
+    background-color: black;
+}
+
+.box-1{
+    
+    text-align: center;
+   
+    background-color: #80897e;
+    height: 100px;
+    width: 200px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
