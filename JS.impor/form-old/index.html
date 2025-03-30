@@ -8,6 +8,12 @@
     <!--TAILWIND CSS-->
     <script src="https://cdn.tailwindcss.com"></script>
 
+     <!--FireBase SDK-->
+     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+ 
+
 
 </head>
 
@@ -89,6 +95,31 @@
 
         function saveDataToDB(name, email, message){
 
+            const firebaseConfig = {
+                apiKey: "AIzaSyADsj9oi4RVlNjbe-fjsx6q1Wf6cI5QQB4",
+                authDomain: "test-formmine.firebaseapp.com",
+                databaseURL: "https://test-formmine-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "test-formmine",
+                storageBucket: "test-formmine.firebasestorage.app",
+                messagingSenderId: "807603843845",
+                appId: "1:807603843845:web:eb311e39cbce610f1a7d6c"
+            };
+
+            if (!firebase.app.legnth) {
+                firebase.initializeApp(firebaseConfig)
+            };
+
+            const db = firebase.database().ref("LoginForm");
+
+            db.push({
+                name: name,
+                email: email,
+                message: message
+            })
+
+            formElement.reset()
+            mailElement.textContent = ""
+            mailElementTrue.textContent = ""
         }
 
 
@@ -147,6 +178,11 @@
 
 
         })
+
+        
+    
+
+
 
     </script>
 
