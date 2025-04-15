@@ -1,95 +1,12 @@
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-let productData = [
-
-  {
-    product_id:"1",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "High-Performance Laptop Pro 15-inch",
-    price: "1499",
-    offer: "10",
-    rating: "4.7",
-    total_no_users: "1250"
-  },
-  {
-    product_id:"2",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "Wireless Noise-Cancelling Headphones",
-    price: "249",
-    offer: "25",
-    rating: "4.9",
-    total_no_users: "3480"
-  },
-  {
-    product_id:"3",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "Smart Home Assistant Speaker Gen 5",
-    price: "99",
-    offer: "5",
-    rating: "4.5",
-    total_no_users: "5112"
-  },
-  {
-    product_id:"4",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "Organic Cotton T-Shirt (Pack of 3)",
-    price: "45",
-    offer: "0",
-    rating: "4.2",
-    total_no_users: "675"
-  },
-  {
-    product_id:"5",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "Professional DSLR Camera Kit",
-    price: "899",
-    offer: "15",
-    rating: "4.8",
-    total_no_users: "930"
-  },
-  {
-    product_id:"6",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "Ergonomic Office Chair - Mesh Back",
-    price: "320",
-    offer: "20",
-    rating: "4.6",
-    total_no_users: "1520"
-  },
-  {
-    product_id:"7",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "Stainless Steel Water Bottle (1L)",
-    price: "25",
-    offer: "0",
-    rating: "4.9",
-    total_no_users: "8990"
-  },
-  {
-    product_id:"8",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "Portable Bluetooth Speaker - Waterproof",
-    price: "75",
-    offer: "10",
-    rating: "4.4",
-    total_no_users: "2105"
-  },
-  {
-    product_id:"9",
-    image: "https://flowbite.s3.amazonaws.com/blocks/e-commerce/iphone-light.svg",
-    title: "Gaming Keyboard RGB Mechanical",
-    price: "120",
-    offer: "30",
-    rating: "4.7",
-    total_no_users: "1888"
-  },
-]
 
 
 
 const ProductionCard = (props11) => {
 
-  console.log(props11);
+
 
   return (<>
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
@@ -255,7 +172,7 @@ const ProductionCard = (props11) => {
                 d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
               />
             </svg>
-            Add to cart
+          Buy Now
           </button>
         </div>
       </div>
@@ -267,37 +184,89 @@ const ProductionCard = (props11) => {
 
 };
 
+
+
+
 const ProductLayout = () => {
-  return (
 
-    <div className="2xl:container mx-auto">
-      <div className="w-[90%]  mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 py-5 px-5">
+  const [productDatas, setProductDatas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); 
+  const [counter, setCounter] = useState(10);   
+  
+useEffect( ()=> {
+  console.log(counter);
+  setCounter(counter+1);
 
-        {
+},[])
 
-          productData.map((items) => {
-            return (
+  useEffect(()=>{ 
+    console.log("useEffect Excuted")
+    fetchData()
+  
+  },[]);
+  
 
-              <ProductionCard
-                key={uuidv4()}
-                image={items.image}
-                title={items.title}
-                price={items.price}
-                offer={items.offer}
-                rating={items.rating}
-                total_no_users={items.total_no_users}
+  const fetchData = async () =>{
+    try {
+      setIsLoading(false)
+    const res = await fetch("https://dummyjson.com/products")
+    const data = await res.json();
+    console.log("data:", data.products)
+    setProductDatas(data.products)
 
-              />
-            )
+    }catch (err) {
+      console.log(err) 
+ 
+    }finally{
+      setIsLoading(false) 
+    }
+    
+  };
 
-          })
-        }
+  if(isLoading) {
+    return <p>Loading.....</p>
 
+  }else{
+    return (
 
+      <div className="2xl:container mx-auto">
+       
+        <div className="w-[90%]  mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 py-5 px-5">
+  
+          {
+  
+            productDatas.map((items) => {
+              return (
+  
+                <ProductionCard
+                  key={uuidv4()}
+                  image={items.thumbnail}
+                  title={items.title}
+                  price={items.price}
+                  offer={items.discountPercentage}
+                  rating={items.rating}
+                  total_no_users={items.stock}
+  
+                />
+              )
+  
+            })
+          }
+  
+  
+        </div>
+  
       </div>
+    )   
+     
+  }
 
-    </div>
-  )
+
+
+  console.log("component Render")
+
+
+
 }
 
 

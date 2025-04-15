@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Footer from "../Footer/Footer";
 
 const Counter = () => {
 
@@ -11,6 +12,7 @@ const Counter = () => {
     
     return (
         <>
+           
          <div className="border border-red-600 py-5">
         <div className="space-x-4 ">
                 <p>Number Value</p>
@@ -80,7 +82,7 @@ const Counter = () => {
 
         </div>
 
-           
+        
 
         </>
     )
