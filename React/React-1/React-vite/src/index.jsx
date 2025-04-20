@@ -1,4 +1,3 @@
-
 import Header from "./components/Header/Header"
 
 import ProductLayout from "./components/ProductLayout/ProductLayout"
@@ -15,23 +14,16 @@ import Error from "./components/Error/Error"
 
 import Error1 from "./components/Error/Error1"
 
+import {createBrowserRouter, RouterProvider, Route,Link,Outlet,} from "react-router-dom";
 
 import "./style.css"
 import ReactDOM from "react-dom/client"
 
-import {
-    createBrowserRouter,
-    RouterProvider,
-    Route,
-    Link,
-    Outlet,
-} from "react-router-dom";
 import ProductDetails from "./components/ProductDetails/ProductDetails"
+import ImageCoponents from "./components/ImageComponents/ImageComponents"
 
 
-
-
-
+//components composition - Calling a Functional Components inside a other functional components 
 
 
 
@@ -47,11 +39,7 @@ const AppLayout = () => {
 
             <Outlet />
 
-            <Footer />
-
-
-
-
+            <Footer/>
 
 
         </>
@@ -75,10 +63,10 @@ const Home = () => {
 const router = createBrowserRouter([{
     path: "/",
     element: <AppLayout />,
-  
 
 
- 
+
+
 
     children: [
         {
@@ -98,16 +86,21 @@ const router = createBrowserRouter([{
         },
         {
             path: "/products",
-            element: <ProductLayout/>,
+            element: <ProductLayout />,
         },
         {
-            path: "/product/:id",
-            element: <ProductDetails/>
-        }
+            path: "/products/:id",
+            element: <ProductDetails />,
+        },
+        {
+            path: "/images",
+            element: <ImageCoponents />,
+
+        },
 
     ],
 
-    errorElement: <Error/>,
+    errorElement: <Error />,
 
 },
 ])

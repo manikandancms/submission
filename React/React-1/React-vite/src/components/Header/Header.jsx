@@ -1,75 +1,15 @@
 import { useState } from "react";
 import 'flowbite';
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
 
 
-const Navbar = () => {
-  const [show, setShow] = useState(false);
 
-  const toggle = () => {
-    setShow(!show);
-  };
 
-  return (
-    <div className="2xl:container bg-red-500 mx-auto">
-      <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 bg-green-600">
-        {/* logo */}
-        <div className="bg-yellow-50 flex justify-between">
-          <p>Logo</p>
-          <div>
-            {/* Menu Toggle Icon */}
-            {show ? (
-              <svg
-                onClick={toggle}
-                className="block md:hidden"
-                viewBox="0 0 21 21"
-                fill="currentColor"
-                height="1em"
-                width="1em"
-                aria-label="Close menu">
-                <g fill="none" fillRule="evenodd" stroke="currentColor">
-                  <path d="M15.5 15.5l-10-10zM15.5 5.5l-10 10" />
-                </g>
-              </svg>
-            ) : (
-              <svg
-                onClick={toggle}
-                className="block md:hidden"
-                viewBox="0 0 1024 1024"
-                fill="currentColor"
-                height="1em"
-                width="1em"
-                aria-label="Open menu">
-                <path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z" />
-              </svg>
-            )}
-          </div>
-        </div>
-        {/* content */}
-        <div className={show ? "block" : "hidden md:block"}>
-          <ul className="bg-slate-500 flex flex-col justify-center items-center md:flex-row md:justify-end gap-4">
-            <li id="home">
-              <a href="/" onClick={toggle}> 
-              {/* onClick - TO GET Auto Close Feature */}
-                Home
-              </a>
-            </li>
-            <a href="/offer" onClick={toggle}>
-              Help
-            </a>
-            <li id="offer">Offer</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
+ const Navbar2 = () => {
+  const data = useOnlineStatus()
+  console.log(data)
 
-export const Navbar2 = () => {
-    const [show, setShow] = useState(false);
-  
-    const toggle = () => {
-      setShow(!show);
-    };
   
     return (
     
@@ -78,7 +18,7 @@ export const Navbar2 = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="shrink-0">
-              <a href="#" title="" className="">
+              <Link to="/" title="" className="">
                 <img
                   className="block w-auto h-8 dark:hidden"
                   src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
@@ -89,53 +29,37 @@ export const Navbar2 = () => {
                   src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
                   alt=""
                 />
-              </a>
+              </Link>
             </div>
             <ul className="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   title=""
                   className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="shrink-0">
-                <a
-                  href="#"
+                <Link
+                  to="/products"
                   title=""
                   className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
                 >
-                  Best Sellers
-                </a>
+                  Products
+                </Link>
               </li>
               <li className="shrink-0">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   title=""
-                  className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
-                >
-                  Gift Ideas
-                </a>
-              </li>
-              <li className="shrink-0">
-                <a
-                  href="#"
-                  title=""
-                  className="text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
-                >
-                  Today's Deals
-                </a>
-              </li>
-              <li className="shrink-0">
-                <a
-                  href="#"
-                  title=""
-                  className="text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500"
-                >
-                  Sell
-                </a>
+                  className="flex text-sm font-medium text-gray-900 hover:text-primary-700 dark:text-white dark:hover:text-primary-500">
+
+                  {data ? "🟢" : "🔴"}
+                
+                 
+                </Link>
               </li>
             </ul>
           </div>
@@ -628,10 +552,7 @@ export const Navbar2 = () => {
         </div>
       </div>
     </nav>
-    
-      
-    );
-  };
-  
+  );
+};
 
-export default Navbar2 
+export default Navbar2; 
