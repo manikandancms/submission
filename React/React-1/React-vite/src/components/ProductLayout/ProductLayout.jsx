@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link, useNavigate } from "react-router-dom";
 import useFetchProducts from '../../hooks/useFetchProducts';
@@ -42,7 +42,9 @@ const StarRating = ({ rating }) => {
   );
 };
 
-const ProductionCard = (props11) => {
+const ProductCard = (props11) => {
+  const data = useContext(userStore)
+  console.log(data);
   const navigate = useNavigate();
 
   const handleBuyNow = () => {
@@ -110,7 +112,7 @@ const ProductionCard = (props11) => {
 const ProductLayout = () => {
   const { productData, isLoading } = useFetchProducts();
 
-  const ProductionCardWithCategory = productWithCategory(ProductionCard);
+  const ProductCardWithCategory = productWithCategory(ProductCard);
 
   if (isLoading) {
     return <p>Loading.....</p>;
@@ -120,7 +122,7 @@ const ProductLayout = () => {
     <div className="2xl:container mx-auto">
       <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 py-5 px-5">
         {productData.map((items) => (
-          <ProductionCardWithCategory
+          <ProductCardWithCategory
             key={uuidv4()}
             image={items.thumbnail}
             title={items.title}
@@ -138,5 +140,4 @@ const ProductLayout = () => {
 };
 
 export default ProductLayout;
-
 

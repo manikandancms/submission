@@ -2,13 +2,21 @@ import { useState } from "react";
 import 'flowbite';
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
+import { useContext } from "react";
+import userStore from "../../store/UserStore";
+import useCard from "../../store/UseCard";
 
 
 
 
  const Navbar2 = () => {
   const data = useOnlineStatus()
-  console.log(data)
+  console.log(data);
+  
+  const user_data = useContext(userStore); 
+
+  const datas = useCard();
+  console.log(datas)
 
   
     return (

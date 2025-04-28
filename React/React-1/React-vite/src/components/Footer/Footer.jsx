@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom"
+import { useContext } from "react";
+import UserContent from "../../store/UserStore";
 
 const Footer = () => {
+
+  const user_data = useContext(UserContent); 
+
     return (
         <>
         <footer className="bg-white rounded-lg shadow-sm dark:bg-gray-900 m-4">
