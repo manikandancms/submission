@@ -1,14 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { Link, useNavigate } from "react-router-dom";
 import useFetchProducts from '../../hooks/useFetchProducts';
 
+// HOC to add category label to the product card
 const productWithCategory = (Component) => {
   const WithCategory = (props11) => {
+    const category = props11.category || "No category"; // fallback to "No category" if no category is provided
     return (
       <div className="relative">
         <span className="absolute top-1.5 left-1.5 bg-gray-600 text-white px-2 py-1 rounded-md text-xs z-10">
-          {props11.category}
+          {category}
         </span>
         <Component {...props11} />
       </div>
@@ -17,13 +17,17 @@ const productWithCategory = (Component) => {
   return WithCategory;
 };
 
+// Star Rating component
 const StarRating = ({ rating }) => {
+  // Ensure the rating is a valid number
+  const validRating = Math.floor(rating) || 0;
+
   return (
     <div className="flex items-center">
       {[...Array(5)].map((_, index) => (
         <svg
           key={index}
-          className={`w-4 h-4 ${index < Math.floor(rating)
+          className={`w-4 h-4 ${index < validRating
             ? 'text-yellow-400'
             : index < rating
               ? 'text-yellow-400 opacity-50'
@@ -42,16 +46,15 @@ const StarRating = ({ rating }) => {
   );
 };
 
+// Product Card component
 const ProductCard = (props11) => {
-  const data = useContext(userStore)
-  console.log(data);
   const navigate = useNavigate();
 
   const handleBuyNow = () => {
     navigate(`/products/${props11.id}`);
   };
 
-  return (<>
+  return (
     <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
       <Link to={`/products/${props11.id}`}>
         <img className="rounded-t-lg p-8" src={props11.image} alt="product image" />
@@ -106,16 +109,31 @@ const ProductCard = (props11) => {
         </div>
       </div>
     </div>
-  </>);
+  );
 };
 
+// Product Layout component
 const ProductLayout = () => {
   const { productData, isLoading } = useFetchProducts();
 
   const ProductCardWithCategory = productWithCategory(ProductCard);
 
+  // If loading, show a skeleton loader
   if (isLoading) {
-    return <p>Loading.....</p>;
+    return (
+      <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 py-5 px-5">
+        {[...Array(6)].map((_, idx) => (
+          <div key={idx} className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800 animate-pulse">
+            <div className="h-48 bg-gray-300 rounded-t-lg" />
+            <div className="px-5 pb-5">
+              <div className="h-6 bg-gray-300 rounded mb-2" />
+              <div className="h-6 bg-gray-300 rounded mb-2" />
+              <div className="h-6 bg-gray-300 rounded" />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
   }
 
   return (
@@ -123,7 +141,7 @@ const ProductLayout = () => {
       <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 py-5 px-5">
         {productData.map((items) => (
           <ProductCardWithCategory
-            key={uuidv4()}
+            key={items.id} // Use the item's id as the key
             image={items.thumbnail}
             title={items.title}
             price={items.price}
@@ -140,4 +158,3 @@ const ProductLayout = () => {
 };
 
 export default ProductLayout;
-

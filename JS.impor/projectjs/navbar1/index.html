@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>nav bar</title>
+</head>
+
+<body class="bg-black">
+    <div class="2xl: container mx-auto mt-2">
+        <div class="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 h-[10vh]">
+            <div class="flex flex-row items-center justify-between px-2 rounded-tl-lg ">
+                <!-- <p
+                    class=" text-slate-300 hover:text-white hover:scale-125 transition-transform duration-500 cursor-pointer">
+                    Logo
+                </p> -->
+
+
+                 <img src="https://ik.imagekit.io/jap5d6wbb/image/wihoubg.jpg?updatedAt=1748452578517" alt="image-cdn" class="h-[110px]">
+
+
+                <div class=" md:hidden">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" width="2em" height="2em"
+                        class=" hidden hover:scale-125 transition-transform duration-500 cursor-pointer bg-green-500 text-black"
+                        id="menu">
+                        <path fill="none" stroke="currentColor" strokelinecap="round" strokelinejoin="round"
+                            strokewidth="1.5"
+                            d="M10 6a4 4 0 1 0-8 0a4 4 0 0 0 8 0m0 12a4 4 0 1 0-8 0a4 4 0 0 0 8 0M22 6a4 4 0 1 0-8 0a4 4 0 0 0 8 0m0 12a4 4 0 1 0-8 0a4 4 0 0 0 8 0"
+                            color="currentColor"></path>
+                    </svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2em" height="2em" id="cross"
+                        class="hover:scale-125 transition-transform duration-500 cursor-pointer bg-red-700 text-white">
+                        <g fill="none" fillRule="evenodd">
+                            <path
+                                d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z">
+                            </path>
+                            <path fill="currentColor"
+                                d="m12 14.122l5.303 5.303a1.5 1.5 0 0 0 2.122-2.122L14.12 12l5.304-5.303a1.5 1.5 0 1 0-2.122-2.121L12 9.879L6.697 4.576a1.5 1.5 0 1 0-2.122 2.12L9.88 12l-5.304 5.304a1.5 1.5 0 1 0 2.122 2.12z">
+                            </path>
+                        </g>
+                    </svg>
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+            <div id="content"
+                class=" flex flex-col   bg-slate-800  rounded-br-lg   items-center justify-center md:flex-row md:items-center md:justify-end md:gap-4 md:mt-0 py-4  px-2">
+                <P
+                    class=" text-slate-300 hover:text-white hover:scale-125 transition-transform duration-500 cursor-pointer">
+                    Home</P>
+                <p
+                    class=" text-slate-300 hover:text-white hover:scale-125 transition-transform duration-500 cursor-pointer">
+                    contact</p>
+                <p
+                    class=" text-slate-300 hover:text-white hover:scale-125 transition-transform duration-500 cursor-pointer">
+                    products</p>
+                <p
+                    class=" text-slate-300 hover:text-white hover:scale-125 transition-transform duration-500 cursor-pointer">
+                    Blog</p>
+                <p
+                    class=" text-slate-300 hover:text-white hover:scale-125 transition-transform duration-500 cursor-pointer">
+                    About</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        const menuElement = document.getElementById("menu")
+        const crossElement = document.getElementById("cross")
+        const contentElement = document.getElementById("content")
+
+        menuElement.addEventListener("click", () => {
+            menuElement.classList.toggle("hidden")
+            crossElement.classList.toggle("hidden")
+            contentElement.classList.toggle("hidden")
+
+        })
+
+        crossElement.addEventListener("click", () => {
+            menuElement.classList.toggle("hidden")
+            crossElement.classList.toggle("hidden")
+            contentElement.classList.toggle("hidden")
+
+        })
+
+    </script>
+
+</body>
+
+</html>

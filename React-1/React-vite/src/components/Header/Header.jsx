@@ -15,8 +15,6 @@ import userStore from "../../store/UserStore";
   
   const user_data = useContext(userStore); 
 
-  const datas = useCard();
-  console.log(datas)
 
   
     return (
@@ -507,7 +505,7 @@ import userStore from "../../store/UserStore";
           id="ecommerce-navbar-menu-1"
           className="bg-gray-50 dark:bg-gray-700 dark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden px-4 mt-4"
         >
-          <ul className="text-gray-900 dark:text-white text-sm font-medium dark:text-white space-y-3">
+          <ul className="text-gray-900 text-sm font-medium dark:text-white space-y-3">
             <li>
               <a
                 href="#"
